@@ -321,30 +321,281 @@ let sA = [2, 6, 9, 2, 4];
 
 // console.log(sorted);
 
-//  slice 
+//  slice
 
+console.log(sA.slice(1, 4));
 
-console.log(sA.slice(1,4));
-
-console.log(sA.slice(2))
-
+console.log(sA.slice(2));
 
 // splice
 
 let fruits = ["Apple", "Banana", "Cherry", "Date"];
 
 // // Remove 2 elements starting from index 1
-// let removed = fruits.splice(1, 2); 
+// let removed = fruits.splice(1, 2);
 
 // console.log(fruits);  // ✅ ["Apple", "Date"]
 // console.log(removed); // ✅ ["Banana", "Cherry"]
 
 console.log(fruits.reverse());
 
-
-
-let flat = [1,[2,3],4,5,[6,7,8,[9,10]]];
+let flat = [1, [2, 3], 4, 5, [6, 7, 8, [9, 10]]];
 
 console.log(flat.flat());
+
+// Lopping for arrays
+
+// 1 array.forEach(element => {
+
+// });
+
+let strArray = "Nikhil";
+let convertedArray = Array.from(strArray);
+
+convertedArray.forEach((e, index, convertedArray) => {
+  console.log(
+    "in index--->",
+    index,
+    "value--->",
+    e,
+    "in array--->",
+    convertedArray
+  );
+});
+
+for (let i; i < convertedArray.length; i++) {
+  console.log(
+    "in index--->",
+    i,
+    "value--->",
+    convertedArray[i],
+    "in array--->",
+    convertedArray
+  );
+}
+
+// 2 Map()
+
+convertedArray.map((e, index, convertedArray) => {
+  console.log(
+    "in index--->",
+    index,
+    "value--->",
+    e,
+    "in array--->",
+    convertedArray
+  );
+});
+
+// 3 filter()
+
+let filteredArray = numberArray.filter((e) => {
+  return e > 5;
+});
+console.log(filteredArray);
+
+// 4 reduce()
+let total = numberArray.reduce((acc, cur) => {
+  return acc + cur;
+}, 0);
+
+console.log(total);
+
+// 5 for of
+for (let value of numberArray) {
+  console.log("value of the element--->", value);
+}
+
+// 6 for in
+for (let index in numberArray) {
+  console.log("indexs are--->", index);
+}
+
+// 7 string to arrays
+
+console.log(Array.from(strArray));
+
+// Developer Tools
+
+// netwroks
+
+// sources
+
+// application storages - local storage , session storage , cookies
+
+// local storage / session storage / cookies
+
+// session storage is valid untill the user closes the tab;
+
+// data in side locoal stragr persists even the tab is closed or session is lost !
+
+// Store data
+localStorage.setItem("username", "Deepak");
+localStorage.setItem("product", "mug");
+
+// .setItem
+// .getItem
+// Retrieve data
+const user = localStorage.getItem("username");
+console.log(user); // Output: Deepak
+
+// Remove specific item
+// localStorage.removeItem('username');
+
+// Clear all items
+localStorage.clear();
+
+// session storage
+sessionStorage.setItem("username", "Deepak");
+sessionStorage.setItem("product", "mug");
+
+// .setItem
+// .getItem
+// Retrieve data
+const userAuth = sessionStorage.getItem("username");
+console.log(user); // Output: Deepak
+
+// Remove specific item
+sessionStorage.removeItem("username");
+
+// Clear all items
+sessionStorage.clear();
+
+// cookies
+
+// Cookies are small pieces of data stored on the client-side (in the browser) 
+// and are sent back to the server with every HTTP request. They are commonly 
+// used for session management, user preferences, and tracking user activities.
+
+
+// Create/Set a Cookie
+document.cookie = "username=Deepak; expires=Fri, 31 Dec 2025 23:59:59 GMT; path=/";
+
+// Read/Get a Cookie
+console.log(document.cookie);  // Output: username=Deepak
+
+// Update a Cookie
+document.cookie = "username=John; path=/";  // Overwrites the previous value
+
+// Delete a Cookie
+document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+// console object methods 
+
+console.error("Something went wrong!"); // Displays an error in red
+
+
+console.info("Server started successfully on port 3000.");
+
+
+console.warn("This API is deprecated. Consider using v2."); 
+
+
+const person = {
+  name: "Deepak",
+  age: 25,
+  address: { city: "Delhi", country: "India" }
+};
+
+console.dir(person); // Expands the object properties in a tree format
+
+console.clear();
+
+console.table(person);
+
+console.time("Loop Time");
+for (let i = 0; i < 100000; i++) {}
+console.timeEnd("Loop Time"); // Outputs: Loop Time: X ms
+
+// js and user interaction is done with websites : BOM
+
+// alert
+
+// alert("hi class");
+
+// promt 
+
+// let input = prompt("enter whater ever you eant to enter");
+
+// console.log(input);
+
+// confirm
+
+// confirm("are you understanmding?");
+
+// window object --> DOM , BOM , core js
+
+console.log(window);           // Displays the window object
+console.log(window.innerWidth); // Width of the viewport
+console.log(innerHeight);       // Same as window.innerHeight
+
+// DOM
+// getElementById()
+// querySelector(), querySelectorAll()
+// createElement(), appendChild()
+// classList.add(), remove(), toggle()
+
+// BOM
+// console.log(navigator.userAgent);    // Browser details
+console.log(navigator.language);     // User's language
+
+console.log(screen.width);   // Screen width
+console.log(screen.height);  // Screen height
+
+console.log(location.href);   // Current URL
+// location.reload();            // Reload the page
+// location.href = "https://www.google.com";  // Redirect to Google
+
+
+// console.log(history.length);  // Number of pages in session history
+// history.back();               // Go back one page
+// history.forward();            // Go forward one page
+
+
+// window is the global object in browsers.
+// DOM handles HTML/CSS manipulation using the document object.
+// BOM deals with browser-specific features (tabs, history, screen).
+// Core JavaScript is the base language used everywhere.
+
+// placement of js in html:
+
+// 1 inside head tag 
+
+
+// 2 at the end of body 
+
+
+// 3 defer 
+{/* <script src="index.js" defer></script> */}
+// side by side downloading is done for js and rendering is done for rest html
+
+// 4 async
+{/* <script src="index.js" ascync></script> */}
+// side by side downloading of js is done but not used until and unless html is fully rendered
+
+// DOM ---> Actual Dom..... 
+
+// virtual Dom.....
+
+// BOM methods to search DOM 
+
+// advance js 
+
+// call bvack 
+
+// promises
+
+// acysc awit --- > multi threades 
+
+// set time 
+
+// set interval 
+
+// attributes method
+
+// bom events 
+
+
+
 
 
