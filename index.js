@@ -463,38 +463,35 @@ sessionStorage.clear();
 
 // cookies
 
-// Cookies are small pieces of data stored on the client-side (in the browser) 
-// and are sent back to the server with every HTTP request. They are commonly 
+// Cookies are small pieces of data stored on the client-side (in the browser)
+// and are sent back to the server with every HTTP request. They are commonly
 // used for session management, user preferences, and tracking user activities.
 
-
 // Create/Set a Cookie
-document.cookie = "username=Deepak; expires=Fri, 31 Dec 2025 23:59:59 GMT; path=/";
+document.cookie =
+  "username=Deepak; expires=Fri, 31 Dec 2025 23:59:59 GMT; path=/";
 
 // Read/Get a Cookie
-console.log(document.cookie);  // Output: username=Deepak
+console.log(document.cookie); // Output: username=Deepak
 
 // Update a Cookie
-document.cookie = "username=John; path=/";  // Overwrites the previous value
+document.cookie = "username=John; path=/"; // Overwrites the previous value
 
 // Delete a Cookie
 document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
-// console object methods 
+// console object methods
 
 console.error("Something went wrong!"); // Displays an error in red
 
-
 console.info("Server started successfully on port 3000.");
 
-
-console.warn("This API is deprecated. Consider using v2."); 
-
+console.warn("This API is deprecated. Consider using v2.");
 
 const person = {
   name: "Deepak",
   age: 25,
-  address: { city: "Delhi", country: "India" }
+  address: { city: "Delhi", country: "India" },
 };
 
 console.dir(person); // Expands the object properties in a tree format
@@ -513,7 +510,7 @@ console.timeEnd("Loop Time"); // Outputs: Loop Time: X ms
 
 // alert("hi class");
 
-// promt 
+// promt
 
 // let input = prompt("enter whater ever you eant to enter");
 
@@ -525,9 +522,9 @@ console.timeEnd("Loop Time"); // Outputs: Loop Time: X ms
 
 // window object --> DOM , BOM , core js
 
-console.log(window);           // Displays the window object
+console.log(window); // Displays the window object
 console.log(window.innerWidth); // Width of the viewport
-console.log(innerHeight);       // Same as window.innerHeight
+console.log(innerHeight); // Same as window.innerHeight
 
 // DOM
 // getElementById()
@@ -537,20 +534,18 @@ console.log(innerHeight);       // Same as window.innerHeight
 
 // BOM
 // console.log(navigator.userAgent);    // Browser details
-console.log(navigator.language);     // User's language
+console.log(navigator.language); // User's language
 
-console.log(screen.width);   // Screen width
-console.log(screen.height);  // Screen height
+console.log(screen.width); // Screen width
+console.log(screen.height); // Screen height
 
-console.log(location.href);   // Current URL
+console.log(location.href); // Current URL
 // location.reload();            // Reload the page
 // location.href = "https://www.google.com";  // Redirect to Google
-
 
 // console.log(history.length);  // Number of pages in session history
 // history.back();               // Go back one page
 // history.forward();            // Go forward one page
-
 
 // window is the global object in browsers.
 // DOM handles HTML/CSS manipulation using the document object.
@@ -559,43 +554,305 @@ console.log(location.href);   // Current URL
 
 // placement of js in html:
 
-// 1 inside head tag 
+// 1 inside head tag
 
+// 2 at the end of body
 
-// 2 at the end of body 
-
-
-// 3 defer 
-{/* <script src="index.js" defer></script> */}
+// 3 defer
+{
+  /* <script src="index.js" defer></script> */
+}
 // side by side downloading is done for js and rendering is done for rest html
 
 // 4 async
-{/* <script src="index.js" ascync></script> */}
+{
+  /* <script src="index.js" ascync></script> */
+}
 // side by side downloading of js is done but not used until and unless html is fully rendered
 
-// DOM ---> Actual Dom..... 
+// DOM ---> Actual Dom.....
 
 // virtual Dom.....
 
-// BOM methods to search DOM 
+// advance js
 
-// advance js 
-
-// call bvack 
+// call bvack
 
 // promises
 
-// acysc awit --- > multi threades 
+// acysc awit --- > multi threades
 
-// set time 
+// set time
 
-// set interval 
+// set interval
 
 // attributes method
 
-// bom events 
+// bom events
+
+// DOM => text node , elemenent node and comment node !
+
+// DOM search and manipulation :
+
+// BOM methods to search DOM
+
+// DOM (text node , elemenmt node and comments)
+
+// getElementById()
+// querySelector(), querySelectorAll()
+// createElement(), appendChild()
+// classList.add(), remove(), toggle()
+
+// auto corection
+
+const parent = document.getElementById("parent");
+
+console.log(parent);
+
+// Accessing child nodes
+console.log("All Child Nodes:", parent.childNodes); // Includes text nodes (whitespace)
+
+// First Child (may return a text node due to whitespace)
+console.log("First Child Node:", parent.firstChild);
+
+// Last Child (may return a text node)
+console.log("Last Child Node:", parent.lastChild);
+
+// Accessing the first <p> element (ignoring whitespace)
+console.log("First <p> Element:", parent.childNodes[1]);
+
+// Accessing the last <p> element
+console.log("Last <p> Element:", parent.childNodes[parent.lastChild]);
+
+// element.chidNode[0] === parent.firstChild
+
+// Bom methods
+
+// 1 document.getElementById
+
+// const newParent = document.getElementById("parent");
+
+// console.log(newParent);
+
+// 2 document.getElementByClassName
+
+const newParentClass = document.getElementsByClassName("parent")[0];
+
+console.log(newParentClass);
+
+// 3 document.querySelector
+
+const query = document.querySelector(".parent");
+
+console.log(query);
+
+// 4 document.querySelectorAll
+const queryFirst = document.querySelectorAll(".parent")[1];
+
+console.log(queryFirst);
+
+// 5 document.getElementByTagName
+
+const head = document.getElementsByTagName("H1");
+
+console.log("Heading", head);
+
+// matches , closest and contains
+
+// const button = document.querySelector(".btn");
+
+//   console.log(button.matches(".primary"));   // ✅ true
+//   console.log(button.matches(".secondary")); // ❌ false
+
+const button = document.querySelector(".btn");
+
+console.log(button.closest(".card")); // ✅ Finds the <div class="card">
+console.log(button.closest(".wrapper")); // ❌ Returns null (no match found)
+
+const parentName = document.querySelector(".parent");
+const childName = document.querySelector(".child");
+
+console.log(parentName.contains(childName)); // ✅ true (child is inside parent)
+console.log(childName.contains(parentName)); // ❌ false (parent is not inside child)
+
+// tables
+
+// table.rows	All <tr> elements in the table	HTMLCollection of rows
+// table.tHead	The <thead> section	<thead> element or null
+
+// innerHtml and outerHtml
+
+const container = document.getElementById("container");
+
+// Get the inner HTML (content inside the <div>)
+// console.log(container.innerHTML);
+
+// Output: <p>Hello, <strong>World!</strong></p>
+
+// Update the inner content
+container.innerHTML = "<h2>Welcome to JavaScript!</h2>";
+
+console.log(container.innerHTML);
+
+//  outerHtml
+
+const box = document.getElementById("box");
+
+// Get the outer HTML (the entire <div> element)
+console.log(box.outerHTML);
+// Output: <div id="box"><p>This is a box!</p></div>
+
+// Replace the entire element
+box.outerHTML = "<section><h3>Box Replaced!</h3></section>";
+
+console.log(box.outerHTML);
+
+// text node
+
+// attribute methods
+
+// how to inset a element in document flow
+
+// className and classList
+
+// Events
+
+// Hidden and none
+
+// .check{
+//   display: hidden;
+//   }
+
+/* .check{
+      display: none;
+  } */
+
+const link = document.getElementById("myLink");
+
+// Get the href attribute
+console.log(link.getAttribute("href")); // Output: https://example.com
+
+// Get the target attribute
+console.log(link.getAttribute("target")); // Output: _blank
+
+link.setAttribute("href", "https://openai.com");
+
+// Add a new attribute
+link.setAttribute("title", "Go to OpenAI");
+
+// Verify changes
+console.log(link.getAttribute("href")); // Output: https://openai.com
+console.log(link.getAttribute("title")); // Output: Go to OpenAI
+
+console.log(link.hasAttribute("href"));
+console.log(link.hasAttribute("download"));
+
+// link.removeAttribute("target");
+console.log(link.hasAttribute("target"));
+
+// to append a div in html through js
+
+let div = document.createElement("div");
+
+div.innerHTML = "<h1>Hello</h1>";
+
+document.body.prepend(div);
+
+div.style.backgroundColor = "blue";
+
+// prepend() , before() , after() , replaceWith()
+
+// const newElement = document.createElement("p");
+// newElement.textContent = "Inserted Before H1!";
+
+// // Insert before the target element
+// div.before(newElement);
+
+// const newElement = document.createElement("p");
+// newElement.textContent = "Inserted After H1!";
+
+// Insert before the target element
+// div.after(newElement);
+
+const oldElement = document.getElementById("oldElement");
+const newElement = document.createElement("h1");
+newElement.textContent = "Replaced Content of div with H1!";
+
+// Replace the old element
+oldElement.replaceWith(newElement);
+
+// Adjacent Html , Text
+
+// insertAdjacentHTML()
+
+// beforebegin	Inserts before the element itself	Outside, before the element
+// afterbegin	Inserts as the first child	Inside, at the start of the element
+// beforeend	Inserts as the last child	Inside, at the end of the element
+// afterend	Inserts after the element itself	Outside, after the element
+
+const contain = document.getElementById("contain");
+
+contain.insertAdjacentHTML("beforebegin", "<p>Inserted BEFORE the div!</p>");
+
+contain.insertAdjacentHTML("afterbegin", "<h2>Inserted at the START!</h2>");
+
+contain.insertAdjacentHTML("beforeend", "<h3>Inserted at the END!</h3>");
+
+contain.insertAdjacentHTML("afterend", "<p>Inserted after the div!</p>");
+
+// to remove a element
+oldElement.remove();
+
+// classList Methods in JavaScript
+
+// element.classList.add('className');       // Add a class
+// element.classList.remove('className');    // Remove a class
+// element.classList.toggle('className');    // Toggle (add/remove) a class
+// element.classList.contains('className');  // Check if the class exists (returns true/false)
+
+const box1 = document.getElementById("boxes");
+
+// Adding classes
+box1.classList.add("highlight", "border");
+
+// Removing the 'highlight' class
+// box1.classList.remove("highlight");
+
+// box1.classList.toggle("highlight");
+// Purpose: Adds the class if it's not present, removes it if it is present (toggles).
+// Syntax: element.classList.toggle('className')
+
+if (box1.classList.contains("highlight")) {
+  console.log("The highlight class is present!");
+} else {
+  console.log("No highlight class found.");
+}
+
+// Events Bowser / Html 
+
+// onClick , onfocus 
+
+// onSubmit 
+
+// EventListners
+
+// addEventListners
+
+// removeEventListners
+
+// Event object 
+
+// The Event Object in JavaScript provides information about an event that occurs
+//  (like a click, keypress, form submission, etc.).
 
 
+const boxin = document.getElementById("boxin");
 
+boxin.addEventListener("click", function(event) {
+  const x = event.clientX;
+  const y = event.clientY;
+  box.textContent = `X: ${x}, Y: ${y}`;  // Display the coordinates inside the box
+  console.log("X-->",x,"Y-->",y);
+});
 
 
