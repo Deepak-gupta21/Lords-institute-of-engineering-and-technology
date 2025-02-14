@@ -6,4 +6,76 @@ display: hidden;
     display: none;
 } */
 
+/* 
+body{
+ background-color: rgb(200, 59, 88);
+} */
 
+/* inline css > file <style> >exter css */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* universal selector */
+
+body{
+    background: red url("ss.png") no-repeat;
+    border-radius: 50px;
+}
+
+
+
+
+/* box modal */
+
+/* body{
+    margin: 200px 100px 300px 400px;  
+} */
+
+.image{
+    background-image: url("ss.png");
+    height: 400px;
+    width: 400px;
+    background-size: contain;
+    /* background-repeat: no-repeat; */
+    border-radius: 50%;
+}
+
+/* collapse mRGIN */
+.div1{
+    height: 400px;
+    width: 400px;
+    margin: 200px;
+    background-color: blue;
+    box-sizing: border-box; 
+    /* (height and width of border + padding is taken in account) */
+}
+.div2{
+    background-color: blueviolet;
+    height: 400px;
+    width: 400px;  
+    margin: 100px;
+    box-sizing: content-box;
+    /* (height and width of border + padding is taken in account) */
+}
+
+/* TRBL */
+
+/* box sizing */
+
+/* display propery */
+
+/* 1 */
+
+
+/* inline */ 
+
+/* 2 */
+
+/* block */ 
+
+/* 3 */
+
+/* inline-block */ 
